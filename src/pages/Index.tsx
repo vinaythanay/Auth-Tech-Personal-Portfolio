@@ -10,16 +10,35 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 const Index = () => {
+  // Initialize scroll animations
   useEffect(() => {
-    document.title = "Vinay Kumar - Portfolio";
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach(el => observer.observe(el));
+    
+    return () => {
+      elements.forEach(el => observer.unobserve(el));
+    };
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Header />
       <Hero />
       <About />
       <Projects />
+      
+      
       <Experience />
       <Skills />
       <Contact />

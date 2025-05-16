@@ -1,5 +1,7 @@
 
 import type { Config } from "tailwindcss";
+import fs from 'fs'; // ✅ Preferred with TypeScript and modern tooling
+
 
 export default {
 	darkMode: ["class"],

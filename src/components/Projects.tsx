@@ -74,31 +74,32 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-50">
-      <div className="section-container">
-        <h2 className="section-title pb-4">Projects</h2>
-        <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-          A showcase of my technical projects ranging from web applications to IoT solutions,
-          demonstrating my skills in full-stack development, Salesforce CRM, and more.
-        </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard 
-              key={index}
-              title={project.title}
-              description={project.description}
-              technologies={project.technologies}
-              githubLink={project.githubLink}
-              demoLink={project.demoLink}
-              imageUrl={project.imageUrl}
-              achievements={project.achievements}
-              delay={project.delay}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+    <section id="projects" className="py-20 bg-[hsl(var(--section-bg))] text-[hsl(var(--foreground))]">
+  <div className="section-container">
+    <h2 className="section-title pb-4">Projects</h2>
+    <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
+      A showcase of my technical projects ranging from web applications to IoT solutions,
+      demonstrating my skills in full-stack development, Salesforce CRM, and more.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project, index) => (
+        <ProjectCard 
+          key={index}
+          title={project.title}
+          description={project.description}
+          technologies={project.technologies}
+          githubLink={project.githubLink}
+          demoLink={project.demoLink}
+          imageUrl={project.imageUrl}
+          achievements={project.achievements}
+          delay={project.delay}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
   );
 };
 

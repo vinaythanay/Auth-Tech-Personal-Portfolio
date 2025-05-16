@@ -1,9 +1,9 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
 
 @layer base {
   :root {
@@ -36,7 +36,26 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+    --section-bg: 0 0% 100%;
+    --section-card-bg: 0 0% 98%;
+    --section-hero-bg: 240 100% 99%;
+    --section-footer-bg: 210 20% 96%;
   }
+  .dark {
+  /* Existing dark theme tokens... */
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+
+  --section-bg: 222.2 84% 4.9%;
+  --section-card-bg: 215 25% 14%;
+  --section-hero-bg: 220 23% 18%;
+  --section-footer-bg: 216 33% 12%;
+}
+.glass-card {
+  background-color: hsl(var(--section-card-bg));
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+}
 
   * {
     @apply border-border;
