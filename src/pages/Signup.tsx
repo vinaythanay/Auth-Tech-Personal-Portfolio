@@ -165,93 +165,93 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-portfolio-light-gray dark:bg-gray-900 px-4">
-      <div className="w-full max-w-md space-y-8 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
-        <div className="text-center">
-          <h2 className="heading-md text-portfolio-dark-blue dark:text-white">Create an Account</h2>
-          <p className="text-portfolio-gray dark:text-gray-300 mt-2">Sign up to create your portfolio</p>
-        </div>
-
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="space-y-4">
-            <div>
-              <Label htmlFor="username" className="dark:text-white">Username</Label>
-              <Input
-                id="username"
-                name="username"
-                type="text"
-                placeholder="Your username"
-                value={formData.username}
-                onChange={handleChange}
-                className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                required
-              />
-            </div>
-            <div>
-              <Label htmlFor="email" className="dark:text-white">Email</Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Your email"
-                value={formData.email}
-                onChange={handleChange}
-                className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                required
-              />
-            </div>
-            <div>
-              <Label htmlFor="password" className="dark:text-white">Password</Label>
-              <Input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Create a password"
-                value={formData.password}
-                onChange={handleChange}
-                className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                required
-              />
-              {passwordError && (
-                <p className="text-red-500 dark:text-red-400 text-xs mt-1">{passwordError}</p>
-              )}
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                Password must be at least 8 characters long and contain uppercase, lowercase, 
-                number, and special character.
-              </p>
-            </div>
-            <div>
-              <Label htmlFor="confirmPassword" className="dark:text-white">Confirm Password</Label>
-              <Input
-                id="confirmPassword"
-                name="confirmPassword"
-                type="password"
-                placeholder="Confirm your password"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                required
-              />
-            </div>
-          </div>
-
-          <div className="text-sm">
-            <span className="text-portfolio-gray dark:text-gray-300">Already have an account? </span>
-            <Link to="/login" className="text-portfolio-blue dark:text-blue-400 hover:underline">
-              Log in
-            </Link>
-          </div>
-
-          <Button
-            type="submit"
-            className="w-full bg-portfolio-blue hover:bg-portfolio-light-blue dark:bg-blue-600 dark:hover:bg-blue-700"
-            disabled={isLoading}
-          >
-            {isLoading ? "Creating account..." : "Sign up"}
-          </Button>
-        </form>
-      </div>
+    <div className="min-h-screen flex items-center justify-center bg-[#0b0c10] px-4">
+  <div className="w-full max-w-md space-y-8 bg-[#161b22] p-8 rounded-2xl shadow-lg">
+    <div className="text-center">
+      <h2 className="text-3xl font-bold text-white">Create an Account</h2>
+      <p className="text-[#9ca3af] mt-2">Sign up to enter the system</p>
     </div>
+
+    <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+      <div className="space-y-4">
+        <div>
+          <Label htmlFor="username">Username</Label>
+          <Input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="Your username"
+            value={formData.username}
+            onChange={handleChange}
+            className="bg-[#1f2937] text-white border border-[#374151]"
+            required
+          />
+        </div>
+        <div>
+          <Label htmlFor="email">Email</Label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Your email"
+            value={formData.email}
+            onChange={handleChange}
+            className="bg-[#1f2937] text-white border border-[#374151]"
+            required
+          />
+        </div>
+        <div>
+          <Label htmlFor="password">Password</Label>
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Create a password"
+            value={formData.password}
+            onChange={handleChange}
+            className="bg-[#1f2937] text-white border border-[#374151]"
+            required
+          />
+          {passwordError && (
+            <p className="text-red-500 text-xs mt-1">{passwordError}</p>
+          )}
+          <p className="text-xs text-gray-400 mt-1">
+            Use at least 8 characters including uppercase, number & symbol.
+          </p>
+        </div>
+        <div>
+          <Label htmlFor="confirmPassword">Confirm Password</Label>
+          <Input
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            placeholder="Confirm your password"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            className="bg-[#1f2937] text-white border border-[#374151]"
+            required
+          />
+        </div>
+      </div>
+
+      <div className="text-sm">
+        <span className="text-[#9ca3af]">Already have an account? </span>
+        <Link to="/login" className="text-[#8b5cf6] hover:underline">
+          Log in
+        </Link>
+      </div>
+
+      <Button
+        type="submit"
+        className="w-full bg-[#14b8a6] hover:bg-[#0d9488] text-white font-semibold"
+        disabled={isLoading}
+      >
+        {isLoading ? "Creating account..." : "Sign up"}
+      </Button>
+    </form>
+  </div>
+</div>
+
   );
 };
 
