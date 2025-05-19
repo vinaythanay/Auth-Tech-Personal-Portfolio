@@ -45,68 +45,70 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-portfolio-light-gray dark:bg-gray-900 px-4">
-      <div className="w-full max-w-md space-y-8 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
-        <div className="text-center">
-          <h2 className="heading-md text-portfolio-dark-blue dark:text-white">Forgot Password</h2>
-          <p className="text-portfolio-gray dark:text-gray-300 mt-2">
-            {submitted
-              ? "Check your email for reset instructions"
-              : "Enter your email to receive a password reset link"}
-          </p>
+    <div className="min-h-screen flex items-center justify-center bg-[#0b0c10] px-4">
+  <div className="w-full max-w-md space-y-8 bg-[#161b22] p-8 rounded-2xl shadow-lg">
+    <div className="text-center">
+      <h2 className="text-3xl font-bold text-white">Forgot Password</h2>
+      <p className="text-[#9ca3af] mt-2">
+        {submitted
+          ? "Check your email for reset instructions"
+          : "Enter your email to receive a password reset link"}
+      </p>
+    </div>
+
+    {!submitted ? (
+      <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <div>
+          <Label htmlFor="email" className="text-white">Email</Label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="Your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="bg-[#1f2937] text-white border border-[#374151]"
+            required
+          />
         </div>
 
-        {!submitted ? (
-          <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-            <div>
-              <Label htmlFor="email" className="dark:text-white">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="Your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                required
-              />
-            </div>
+        <div className="flex flex-col space-y-4">
+          <Button
+            type="submit"
+            className="w-full bg-[#14b8a6] hover:bg-[#0d9488] text-white font-semibold"
+            disabled={isLoading}
+          >
+            {isLoading ? "Sending..." : "Send Reset Link"}
+          </Button>
+          <Link to="/login">
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full border border-[#8b5cf6] text-[#8b5cf6] bg-[#7c3aed]/20 hover:bg-[#8b5cf6]/30"
 
-            <div className="flex flex-col space-y-4">
-              <Button
-                type="submit"
-                className="w-full bg-portfolio-blue hover:bg-portfolio-light-blue dark:bg-blue-600 dark:hover:bg-blue-700"
-                disabled={isLoading}
-              >
-                {isLoading ? "Sending..." : "Send Reset Link"}
-              </Button>
-              <Link to="/login">
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="w-full border-portfolio-blue text-portfolio-blue hover:bg-portfolio-blue/10 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-900/20"
-                >
-                  Back to Login
-                </Button>
-              </Link>
-            </div>
-          </form>
-        ) : (
-          <div className="mt-8 space-y-6">
-            <p className="text-green-600 dark:text-green-400 text-center">
-              If an account exists with this email, you will receive password reset instructions.
-            </p>
-            <Link to="/login">
-              <Button
-                type="button"
-                className="w-full bg-portfolio-blue hover:bg-portfolio-light-blue dark:bg-blue-600 dark:hover:bg-blue-700"
-              >
-                Return to Login
-              </Button>
-            </Link>
-          </div>
-        )}
+            >
+              Back to Login
+            </Button>
+          </Link>
+        </div>
+      </form>
+    ) : (
+      <div className="mt-8 space-y-6">
+        <p className="text-green-500 text-center">
+          If an account exists with this email, you will receive password reset instructions.
+        </p>
+        <Link to="/login">
+          <Button
+            type="button"
+            className="w-full bg-[#14b8a6] hover:bg-[#0d9488] text-white font-semibold"
+          >
+            Return to Login
+          </Button>
+        </Link>
       </div>
-    </div>
+    )}
+  </div>
+</div>
+
   );
 };
 export default ForgotPassword;
