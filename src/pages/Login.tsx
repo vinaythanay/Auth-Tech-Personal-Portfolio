@@ -92,7 +92,7 @@ const Login = () => {
 
         toast({
           title: "Login successful",
-          description: "You have been redirected to your portfolio page.",
+          description: "You have been redirected to my portfolio page.",
           duration: 3000,
         });
 
@@ -120,7 +120,7 @@ const Login = () => {
       <div className="w-full max-w-md space-y-8 bg-[#161b22] p-8 rounded-2xl shadow-lg">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-white">Welcome Back</h2>
-          <p className="text-[#9ca3af] mt-2">Log in to access your portfolio</p>
+          <p className="text-[#9ca3af] mt-2">Log in to access my personal portfolio</p>
         </div>
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
