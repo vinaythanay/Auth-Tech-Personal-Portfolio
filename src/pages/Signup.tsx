@@ -169,7 +169,7 @@ const Signup = () => {
   <div className="w-full max-w-md space-y-8 bg-[#161b22] p-8 rounded-2xl shadow-lg">
     <div className="text-center">
       <h2 className="text-3xl font-bold text-white">Create an Account</h2>
-      <p className="text-[#9ca3af] mt-2">Sign up to enter the system</p>
+      <p className="text-[#9ca3af] mt-2">Join now to access my portfolio.</p>
     </div>
 
     <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
