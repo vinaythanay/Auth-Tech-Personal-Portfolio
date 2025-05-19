@@ -14,7 +14,6 @@ const Login = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  // ✅ Improved: Check if user is already authenticated
   useEffect(() => {
     const checkAuth = async () => {
       const { data: { user }, error } = await supabase.auth.getUser();
@@ -24,12 +23,10 @@ const Login = () => {
         return;
       }
 
-      // Check for users in localStorage
       const users = JSON.parse(localStorage.getItem("users") || "[]");
       setHasUsers(users.length > 0);
 
       if (users.length === 0) {
-        // Check Supabase profiles table
         const { count } = await supabase
           .from('profiles')
           .select('*', { count: 'exact', head: true });
@@ -59,7 +56,6 @@ const Login = () => {
         throw new Error("Please enter both email and password");
       }
 
-      // Try to sign in with Supabase
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
@@ -116,40 +112,40 @@ const Login = () => {
   };
 
   if (!hasUsers) {
-    return null; // Redirect will occur in useEffect
+    return null; // Redirect happens in useEffect
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-portfolio-light-gray dark:bg-gray-900 px-4">
-      <div className="w-full max-w-md space-y-8 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+    <div className="min-h-screen flex items-center justify-center bg-[#0b0c10] px-4">
+      <div className="w-full max-w-md space-y-8 bg-[#161b22] p-8 rounded-2xl shadow-lg">
         <div className="text-center">
-          <h2 className="heading-md text-portfolio-dark-blue dark:text-white">Welcome Back</h2>
-          <p className="text-portfolio-gray dark:text-gray-300 mt-2">Log in to access your portfolio</p>
+          <h2 className="text-3xl font-bold text-white">Welcome Back</h2>
+          <p className="text-[#9ca3af] mt-2">Log in to access your portfolio</p>
         </div>
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div>
-              <Label htmlFor="email" className="dark:text-white">Email</Label>
+              <Label htmlFor="email" className="text-white">Email</Label>
               <Input
                 id="email"
                 type="email"
                 placeholder="Your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                className="bg-[#1f2937] text-white border border-[#374151]"
                 required
               />
             </div>
             <div>
-              <Label htmlFor="password" className="dark:text-white">Password</Label>
+              <Label htmlFor="password" className="text-white">Password</Label>
               <Input
                 id="password"
                 type="password"
                 placeholder="Your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                className="bg-[#1f2937] text-white border border-[#374151]"
                 required
               />
             </div>
@@ -157,19 +153,19 @@ const Login = () => {
 
           <div className="flex items-center justify-between">
             <div className="text-sm">
-              <span className="text-portfolio-gray dark:text-gray-300">Don't have an account? </span>
-              <Link to="/signup" className="text-portfolio-blue dark:text-blue-400 hover:underline">
+              <span className="text-[#9ca3af]">Don't have an account? </span>
+              <Link to="/signup" className="text-[#8b5cf6] hover:underline">
                 Sign up
               </Link>
             </div>
-            <Link to="/forgot-password" className="text-sm text-portfolio-blue dark:text-blue-400 hover:underline">
+            <Link to="/forgot-password" className="text-sm text-[#8b5cf6] hover:underline">
               Forgot password?
             </Link>
           </div>
 
           <Button
             type="submit"
-            className="w-full bg-portfolio-blue hover:bg-portfolio-light-blue dark:bg-blue-600 dark:hover:bg-blue-700"
+            className="w-full bg-[#14b8a6] hover:bg-[#0d9488] text-white font-semibold"
             disabled={isLoading}
           >
             {isLoading ? "Logging in..." : "Log in"}
